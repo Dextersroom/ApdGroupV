@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nkosinathi-nkosi.example.com/sitemap.xml

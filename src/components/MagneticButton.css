@@ -1,0 +1,65 @@
+.magnetic-btn {
+  --pad-y: 1rem;
+  --pad-x: 2rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: var(--pad-y) var(--pad-x);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 100px;
+  transition: transform 0.35s var(--ease-out), background 0.4s var(--ease-out),
+              color 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+  will-change: transform;
+  overflow: hidden;
+  text-align: center;
+}
+.magnetic-btn .mb-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  transition: transform 0.35s var(--ease-out);
+}
+.magnetic-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-out);
+  z-index: 0;
+}
+
+/* Primary — vermilion CTA */
+.mb-primary {
+  background: var(--c-cta);
+  color: var(--c-neutral);
+}
+.mb-primary::after { background: var(--c-neutral); transform-origin: left; }
+.mb-primary:hover { color: var(--c-primary); }
+.mb-primary:hover::after { transform: scaleX(1); }
+
+/* Secondary — outline */
+.mb-secondary {
+  background: transparent;
+  color: var(--c-neutral);
+  border: 1px solid var(--c-line-strong);
+}
+.mb-secondary::after { background: var(--c-neutral); transform-origin: left; }
+.mb-secondary:hover { color: var(--c-primary); border-color: var(--c-neutral); }
+.mb-secondary:hover::after { transform: scaleX(1); }
+
+/* Ghost — bronze text */
+.mb-ghost {
+  background: transparent;
+  color: var(--c-accent);
+  border: 1px solid transparent;
+  padding-inline: 0.5rem;
+}
+.mb-ghost:hover { color: var(--c-cta); }
